@@ -303,6 +303,8 @@ github.com/magiconair/properties v1.8.0/go.mod h1:PppfXfuXeibc/6YijjN8zIbojt8czP
 github.com/mailru/easyjson v0.0.0-20180823135443-60711f1a8329/go.mod h1:C1wdFJiN94OJF2b5HbByQZoLdCWB1Yqtg26g4irojpc=
 github.com/matrix-org/dendrite v0.0.0-20200130170419-718d3ce707a9 h1:F7gPgR924YjEZkwnG4MXz9R4IBh65gMevi/OWmmXOSw=
 github.com/matrix-org/dendrite v0.0.0-20200130170419-718d3ce707a9/go.mod h1:ZNyXnlsg+GWcpofoqb4bpt/i6A88RQAUTDKp16F17mo=
+github.com/matrix-org/dendrite v0.0.0-20200130173453-d17b930dff19 h1:Wib5h1PXBIHTcvrLfj9E3iv84jhsmBzL8gVqp0Mcaho=
+github.com/matrix-org/dendrite v0.0.0-20200130173453-d17b930dff19/go.mod h1:ZNyXnlsg+GWcpofoqb4bpt/i6A88RQAUTDKp16F17mo=
 github.com/matrix-org/dugong v0.0.0-20171220115018-ea0a4690a0d5 h1:nMX2t7hbGF0NYDYySx0pCqEKGKAeZIiSqlWSspetlhY=
 github.com/matrix-org/dugong v0.0.0-20171220115018-ea0a4690a0d5/go.mod h1:NgPCr+UavRGH6n5jmdX8DuqFZ4JiCWIJoZiuhTRLSUg=
 github.com/matrix-org/gomatrix v0.0.0-20190130130140-385f072fe9af/go.mod h1:3fxX6gUjWyI/2Bt7J1OLhpCzOfO/bB3AiX0cJtEKud0=
