@@ -59,6 +59,7 @@ func main() {
 	cfg.Database.AppService = "postgres://dendrite:itsasecret@localhost/dendrite_appservice?sslmode=disable"
 	cfg.Database.PublicRoomsAPI = "postgres://dendrite:itsasecret@localhost/dendrite_publicroomsapi?sslmode=disable"
 	cfg.Database.Naffka = "postgres://dendrite:itsasecret@localhost/dendrite_naffka?sslmode=disable"
+	cfg.Derive()
 
 	base := basecomponent.NewBaseDendrite(&cfg, "Monolith")
 	defer base.Close() // nolint: errcheck
