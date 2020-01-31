@@ -16,7 +16,11 @@ package main
 
 import (
 	"crypto/ed25519"
+	"fmt"
+	"io/ioutil"
 	"net/http"
+	"os"
+	"os/user"
 
 	gostream "github.com/libp2p/go-libp2p-gostream"
 	"github.com/matrix-org/dendrite/appservice"
@@ -39,10 +43,32 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+const PrivateKeyFileName = ".dendrite-p2p-private"
+
 func main() {
+	filename := PrivateKeyFileName
+	if u, err := user.Current(); err == nil {
+		filename = fmt.Sprintf("%s/%s", u.HomeDir, PrivateKeyFileName)
+	}
+
+	_, err := os.Stat(filename)
+	var privKey ed25519.PrivateKey
+	if os.IsNotExist(err) {
+		_, privKey, _ = ed25519.GenerateKey(nil)
+		if err := ioutil.WriteFile(filename, privKey, 0600); err != nil {
+			fmt.Printf("Couldn't write private key to file '%s': %s\n", filename, err)
+		}
+	} else {
+		privKey, err = ioutil.ReadFile(filename)
+		if err != nil {
+			fmt.Printf("Couldn't read private key from file '%s': %s\n", filename, err)
+			_, privKey, _ = ed25519.GenerateKey(nil)
+		}
+	}
+
 	cfg := config.Dendrite{}
 	cfg.Matrix.ServerName = "p2p"
-	_, cfg.Matrix.PrivateKey, _ = ed25519.GenerateKey(nil)
+	cfg.Matrix.PrivateKey = privKey
 	cfg.Matrix.KeyID = "ed25519:p2pdemo"
 	cfg.Kafka.UseNaffka = true
 	cfg.Kafka.Topics.OutputRoomEvent = "roomserverOutput"
