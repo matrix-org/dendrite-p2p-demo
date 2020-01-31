@@ -321,8 +321,13 @@ github.com/matrix-org/dendrite v0.0.0-20200131120513-fbc6c53c72db h1:UnMvBaKWsHq
 github.com/matrix-org/dendrite v0.0.0-20200131120513-fbc6c53c72db/go.mod h1:MBTBI2XTHpNe6vpDRuqhnIu9khnsdwJXI56jzzZs6Cc=
 github.com/matrix-org/dendrite v0.0.0-20200131125752-086098ddd9cf h1:0SFfuh6ZBO1mGJSwJiIndcIXlGP4fbXRuJmZ38V8bCs=
 github.com/matrix-org/dendrite v0.0.0-20200131125752-086098ddd9cf/go.mod h1:MBTBI2XTHpNe6vpDRuqhnIu9khnsdwJXI56jzzZs6Cc=
+github.com/matrix-org/dendrite v0.0.0-20200131134403-b5e3294a4177 h1:7w6dEfTEcY8RbGEPWYGeGfB2e7w8frgGd5VE6WCdhi8=
+github.com/matrix-org/dendrite v0.0.0-20200131134403-b5e3294a4177/go.mod h1:Inzkkd3cUnInD8oY2AzL3MTF/VvhB6wriO7huVrB648=
 github.com/matrix-org/dugong v0.0.0-20171220115018-ea0a4690a0d5 h1:nMX2t7hbGF0NYDYySx0pCqEKGKAeZIiSqlWSspetlhY=
 github.com/matrix-org/dugong v0.0.0-20171220115018-ea0a4690a0d5/go.mod h1:NgPCr+UavRGH6n5jmdX8DuqFZ4JiCWIJoZiuhTRLSUg=
+github.com/matrix-org/go-libp2p v0.5.1-0.20200131134212-84bfd87a494e/go.mod h1:MvLmPj46PUEKFY/NfkB3cEmfLyGRlLDtQTA9q6b8xUk=
+github.com/matrix-org/go-libp2p v0.5.2-0.20200131133536-1a1cb84431b1 h1:tDHDaw1uxB6PEnBW0pd64vvV/nXUOp/wiHwOY5odVm8=
+github.com/matrix-org/go-libp2p v0.5.2-0.20200131133536-1a1cb84431b1/go.mod h1:MvLmPj46PUEKFY/NfkB3cEmfLyGRlLDtQTA9q6b8xUk=
 github.com/matrix-org/gomatrix v0.0.0-20190130130140-385f072fe9af/go.mod h1:3fxX6gUjWyI/2Bt7J1OLhpCzOfO/bB3AiX0cJtEKud0=
 github.com/matrix-org/gomatrix v0.0.0-20190528120928-7df988a63f26 h1:Hr3zjRsq2bhrnp3Ky1qgx/fzCtCALOoGYylh2tpS9K4=
 github.com/matrix-org/gomatrix v0.0.0-20190528120928-7df988a63f26/go.mod h1:3fxX6gUjWyI/2Bt7J1OLhpCzOfO/bB3AiX0cJtEKud0=
