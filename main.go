@@ -16,6 +16,7 @@ package main
 
 import (
 	"crypto/ed25519"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -66,6 +67,10 @@ func main() {
 		}
 	}
 
+	dbport := flag.Int("d", 5432, "local postgres port number")
+	flag.Parse()
+	dbbase := fmt.Sprintf("postgres://dendrite:itsasecret@localhost:%d", *dbport)
+
 	cfg := config.Dendrite{}
 	cfg.Matrix.ServerName = "p2p"
 	cfg.Matrix.PrivateKey = privKey
@@ -75,16 +80,16 @@ func main() {
 	cfg.Kafka.Topics.OutputClientData = "clientapiOutput"
 	cfg.Kafka.Topics.OutputTypingEvent = "typingServerOutput"
 	cfg.Kafka.Topics.UserUpdates = "userUpdates"
-	cfg.Database.Account = "postgres://dendrite:itsasecret@localhost/dendrite_account?sslmode=disable"
-	cfg.Database.Device = "postgres://dendrite:itsasecret@localhost/dendrite_device?sslmode=disable"
-	cfg.Database.MediaAPI = "postgres://dendrite:itsasecret@localhost/dendrite_mediaapi?sslmode=disable"
-	cfg.Database.SyncAPI = "postgres://dendrite:itsasecret@localhost/dendrite_syncapi?sslmode=disable"
-	cfg.Database.RoomServer = "postgres://dendrite:itsasecret@localhost/dendrite_roomserver?sslmode=disable"
-	cfg.Database.ServerKey = "postgres://dendrite:itsasecret@localhost/dendrite_serverkey?sslmode=disable"
-	cfg.Database.FederationSender = "postgres://dendrite:itsasecret@localhost/dendrite_federationsender?sslmode=disable"
-	cfg.Database.AppService = "postgres://dendrite:itsasecret@localhost/dendrite_appservice?sslmode=disable"
-	cfg.Database.PublicRoomsAPI = "postgres://dendrite:itsasecret@localhost/dendrite_publicroomsapi?sslmode=disable"
-	cfg.Database.Naffka = "postgres://dendrite:itsasecret@localhost/dendrite_naffka?sslmode=disable"
+	cfg.Database.Account = config.DataSource(dbbase + "/dendrite_account?sslmode=disable")
+	cfg.Database.Device = config.DataSource(dbbase + "/dendrite_device?sslmode=disable")
+	cfg.Database.MediaAPI = config.DataSource(dbbase + "/dendrite_mediaapi?sslmode=disable")
+	cfg.Database.SyncAPI = config.DataSource(dbbase + "/dendrite_syncapi?sslmode=disable")
+	cfg.Database.RoomServer = config.DataSource(dbbase + "/dendrite_roomserver?sslmode=disable")
+	cfg.Database.ServerKey = config.DataSource(dbbase + "/dendrite_serverkey?sslmode=disable")
+	cfg.Database.FederationSender = config.DataSource(dbbase + "/dendrite_federationsender?sslmode=disable")
+	cfg.Database.AppService = config.DataSource(dbbase + "/dendrite_appservice?sslmode=disable")
+	cfg.Database.PublicRoomsAPI = config.DataSource(dbbase + "/dendrite_publicroomsapi?sslmode=disable")
+	cfg.Database.Naffka = config.DataSource(dbbase + "/dendrite_naffka?sslmode=disable")
 	cfg.Derive()
 
 	base := basecomponent.NewBaseDendrite(&cfg, "Monolith")
